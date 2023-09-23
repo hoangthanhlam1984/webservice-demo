@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\Hashed;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,13 +42,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        // 'password' => 'hashed',
+        'password'          => Hashed::class,
     ];
-
-    // public function setPasswordAttribute(string $password)
-    // {
-    //     $this->password = '123'; //Hash::make($password);
-    // }
 
     public function verifyPassword(string $password): bool
     {

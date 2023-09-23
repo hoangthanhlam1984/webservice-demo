@@ -16,6 +16,7 @@ class AuthController extends Controller
         try {
             /** @var User **/
             $user = User::where('email', $request->email)->firstOrFail();
+
             if ($user->verifyPassword($request->password)) {
                 /** @var \Laravel\Sanctum\NewAccessToken **/
                 $token = $user->createToken('login-' . $user->email);
@@ -56,10 +57,6 @@ class AuthController extends Controller
         try {
             $user = $request->user();
             $data = $request->validated();
-
-            if (isset($data['password'])) {
-                $data['password'] = Hash::make($data['password']);
-            }
 
             $user->update($data);
         } catch (\Throwable $th) {
