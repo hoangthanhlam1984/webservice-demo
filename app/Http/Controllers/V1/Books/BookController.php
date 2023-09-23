@@ -23,6 +23,7 @@ class BookController extends Controller
         try {
             Book::make($request->validated())->save();
         } catch (\Throwable $th) {
+            report($th);
             return response()->json([
                 'success' => false,
                 'message' => 'Fail to insert book',
@@ -56,6 +57,7 @@ class BookController extends Controller
         try {
             $book->update($request->validated());
         } catch (\Throwable $th) {
+            report($th);
             return response()->json([
                 'success' => false,
                 'message' => 'Fail to update the book',
@@ -70,6 +72,7 @@ class BookController extends Controller
         try {
             $book->delete();
         } catch (\Throwable $th) {
+            report($th);
             return response()->json([
                 'success' => false,
                 'message' => 'Fail to delete the book',
