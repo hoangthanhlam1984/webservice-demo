@@ -7,6 +7,7 @@ use App\Http\Requests\V1\Auth\LoginForm;
 use App\Http\Requests\V1\Users\PatchUserForm;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -26,7 +27,7 @@ class AuthController extends Controller
                 ]);
             }
         } catch (\Throwable $th) {
-            \Log::warning('Fail to login ' . $th->getMessage(), $th->getTrace());
+            report($th);
         }
 
         return response()->json([
@@ -42,7 +43,7 @@ class AuthController extends Controller
 
             return response()->json($user->toArray());
         } catch (\Throwable $th) {
-            \Log::warning('Fail to get info ' . $th->getMessage(), $th->getTrace());
+            report($th);
         }
 
         return response()->json([
@@ -54,15 +55,15 @@ class AuthController extends Controller
     {
         try {
             $user = $request->user();
-
             $data = $request->validated();
+
             if (isset($data['password'])) {
                 $data['password'] = Hash::make($data['password']);
             }
 
-            \Log::info("Change user", $data);
             $user->update($data);
         } catch (\Throwable $th) {
+            report($th);
             return response()->json([
                 'success' => false,
                 'message' => 'Fail to update the user',
@@ -81,7 +82,7 @@ class AuthController extends Controller
 
             return response()->json();
         } catch (\Throwable $th) {
-            \Log::warning('fail to logout ' . $th->getMessage(), $th->getTrace());
+            report($th);
             return response()->json([
                 'message' => 'Fail to logout'
             ], 400);

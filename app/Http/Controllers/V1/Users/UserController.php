@@ -24,11 +24,9 @@ class UserController extends Controller
             $data = $request->validated();
             $data['password'] = Hash::make($data['password']);
 
-            \Log::info("Create user", $data);
             User::make($data)->save();
         } catch (\Throwable $th) {
-            \Log::warning($th->getMessage(), $th->getTrace());
-
+            report($th);
             return response()->json([
                 'success' => false,
                 'message' => 'Fail to insert user',
@@ -51,9 +49,9 @@ class UserController extends Controller
                 $data['password'] = Hash::make($data['password']);
             }
 
-            \Log::info("Change user", $data);
             $user->update($data);
         } catch (\Throwable $th) {
+            report($th);
             return response()->json([
                 'success' => false,
                 'message' => 'Fail to update the user',
