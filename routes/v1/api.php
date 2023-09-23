@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\V1\Auth\AuthController;
 use App\Http\Controllers\V1\Books\BookController;
+use App\Http\Controllers\V1\Users\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')->get('user', [AuthController::class, 'show']);
+Route::middleware('auth:sanctum')->patch('user', [AuthController::class, 'patch']);
+
+Route::post('users', [UserController::class, 'store']);
+Route::get('users', [UserController::class, 'index']);
+Route::get('users/{user}', [UserController::class, 'show']);
+Route::patch('users/{user}', [UserController::class, 'patch']);
+
+Route::patch('login', [AuthController::class, 'login']);
+Route::patch('logout', [AuthController::class, 'logout']);
 
 Route::post('books', [BookController::class, 'store']);
 
