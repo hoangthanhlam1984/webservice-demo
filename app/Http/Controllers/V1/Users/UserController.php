@@ -22,7 +22,6 @@ class UserController extends Controller
     {
         try {
             $data = $request->validated();
-            $data['password'] = Hash::make($data['password']);
 
             User::make($data)->save();
         } catch (\Throwable $th) {
@@ -45,9 +44,6 @@ class UserController extends Controller
     {
         try {
             $data = $request->validated();
-            if (isset($data['password'])) {
-                $data['password'] = Hash::make($data['password']);
-            }
 
             $user->update($data);
         } catch (\Throwable $th) {
