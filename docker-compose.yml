@@ -6,9 +6,9 @@ services:
     build: ./php
     container_name: php
     hostname: php
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://nginx/status/fpm"]
-    image: stolz/php
+    # healthcheck:
+      # test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://nginx/status/fpm"]
+    image: php:7.4
     restart: unless-stopped
     volumes:
       - /projects/laravel:/www/laravel
@@ -20,9 +20,9 @@ services:
     build: ./nginx
     container_name: nginx
     hostname: nginx
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/status/nginx"]
-    image: stolz/nginx
+    # healthcheck:
+      # test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/status/nginx"]
+    image: nginx
     ports:
       - "80:80"
     restart: unless-stopped
