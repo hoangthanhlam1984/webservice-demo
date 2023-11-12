@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  php:
+    build: ./php
+    container_name: php
+    hostname: php
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://nginx/status/fpm"]
+    image: stolz/php
+    restart: unless-stopped
+    volumes:
+      - /projects/laravel:/www/laravel
+      - ./php/config:/usr/local/etc:ro
+      - ./php/socket:/var/run/php
+      - ./php/supervisord.conf:/etc/supervisord.conf:ro
+
+  web:
+    build: ./nginx
+    container_name: nginx
+    hostname: nginx
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/status/nginx"]
+    image: stolz/nginx
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    volumes:
+      - /projects:/www
+      - ./nginx/config:/etc/nginx:ro
+      - ./php/socket:/var/run/php
