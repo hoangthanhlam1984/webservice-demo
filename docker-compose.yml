@@ -12,9 +12,9 @@ services:
     restart: unless-stopped
     volumes:
       - /projects/laravel:/www/laravel
-      - ./php/config:/usr/local/etc:ro
-      - ./php/socket:/var/run/php
-      - ./php/supervisord.conf:/etc/supervisord.conf:ro
+      # - ./php/config:/usr/local/etc:ro
+      # - ./php/socket:/var/run/php
+      # - ./php/supervisord.conf:/etc/supervisord.conf:ro
 
   web:
     build: ./nginx
@@ -28,5 +28,5 @@ services:
     restart: unless-stopped
     volumes:
       - /projects:/www
-      - ./nginx/config:/etc/nginx:ro
-      - ./php/socket:/var/run/php
+      # - ./nginx/config:/etc/nginx:ro
+      # - ./php/socket:/var/run/php
