@@ -18,17 +18,17 @@ services:
       # - ./php/socket:/var/run/php
       # - ./php/supervisord.conf:/etc/supervisord.conf:ro
 
-  nginx:
-    # build: ./nginx
-    container_name: nginx
-    hostname: nginx
-    # healthcheck:
-      # test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/status/nginx"]
-    image: nginx
-    ports:
-      - "80:80"
-    restart: unless-stopped
-    volumes:
-      - /projects/laravel:/www/laravel
+  # nginx:
+  #   # build: ./nginx
+  #   container_name: nginx
+  #   hostname: nginx
+  #   # healthcheck:
+  #     # test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/status/nginx"]
+  #   image: nginx
+  #   ports:
+  #     - "80:80"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - /projects/laravel:/www/laravel
       # - ./nginx/config:/etc/nginx:ro
       # - ./php/socket:/var/run/php
