@@ -48,6 +48,7 @@ host('development') // Name of the server
 ->set('branch', 'development') // Git branch
 ->set('deploy_path', '/projects/web-service'); // Deploy path
 
+
 after('deploy:failed', 'deploy:unlock');  // Unlock after failed deploy
 
 ///////////////////////////////////
