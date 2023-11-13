@@ -1,6 +1,5 @@
 import:
   - recipe/laravel.php
-  - recipe/deploy/writable.php
 
 config:
   repository: 'https://github.com/hoangthanhlam1984/webservice-demo.git'
