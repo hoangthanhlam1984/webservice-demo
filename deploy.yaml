@@ -9,8 +9,8 @@ hosts:
   68.183.232.113:
     remote_user: root
     deploy_path: '~/webservice-demo'
-    http_user: www-data
-    http_group: www-data
+    http_user: www
+    http_group: www
 
 tasks:
   build:
