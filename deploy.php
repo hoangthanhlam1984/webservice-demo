@@ -42,7 +42,7 @@ task('deploy:secrets', function () {
 // Hosts
 ///////////////////////////////////
 
-host('prod') // Name of the server
+host('development') // Name of the server
 ->setHostname('68.183.232.113') // Hostname or IP address
 ->set('remote_user', 'root') // SSH user
 ->set('branch', 'development') // Git branch
