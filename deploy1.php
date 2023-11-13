@@ -14,7 +14,7 @@ add('writable_dirs', []);
 // Hosts
 
 host('68.183.232.113')
-    ->set('remote_user', 'project')
+    ->set('remote_user', 'root')
     ->set('deploy_path', '~/webservice-demo');
 
 // Hooks
