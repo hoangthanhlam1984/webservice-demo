@@ -7,10 +7,10 @@ config:
 
 hosts:
   68.183.232.113:
-    remote_user: deployer
+    remote_user: root
     deploy_path: '~/webservice-demo'
-    http_user: project
-    http_group: project
+    http_user: root
+    http_group: root
 
 tasks:
   build:
