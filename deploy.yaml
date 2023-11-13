@@ -1,0 +1,17 @@
+import:
+  - recipe/laravel.php
+
+config:
+  repository: 'https://github.com/hoangthanhlam1984/webservice-demo.git'
+
+hosts:
+  68.183.232.113:
+    remote_user: deployer
+    deploy_path: '~/webservice-demo'
+
+tasks:
+  build:
+    - run: uptime
+
+after:
+  deploy:failed: deploy:unlock
