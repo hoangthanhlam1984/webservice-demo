@@ -1,9 +1,5 @@
 version: '3'
 
-networks:
-    demo_network:
-        driver: bridge
-
 services:
     ws:
         image: hoangthanhlam1984/ws-demo:development
@@ -11,9 +7,7 @@ services:
         ports:
             - 9001:9000
         volumes:
-            - /projects/ws:/www/ws
-        networks:
-            - demo_network
+            - /projects/ws:/var/www/ws
         user: 1000:1000
         working_dir: /var/www/ws
 
