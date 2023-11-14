@@ -6,7 +6,6 @@ networks:
 
 services:
     ws:
-        container_name: ws
         image: hoangthanhlam1984/ws-demo:development
         restart: unless-stopped
         ports:
