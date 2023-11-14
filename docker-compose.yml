@@ -10,8 +10,11 @@ services:
         image: hoangthanhlam1984/ws-demo:development
         restart: unless-stopped
         ports:
-            - "9001:9000"
+            - 9001:9000
         volumes:
             - /projects/ws:/www/ws
         networks:
             - demo_network
+        user: 1000:1000
+        working_dir: /var/www/ws
+
