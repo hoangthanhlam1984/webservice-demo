@@ -2,7 +2,7 @@ version: '3'
 
 networks:
     demo_network:
-        driver: swarm
+        driver: bridge
 
 services:
     ws:
