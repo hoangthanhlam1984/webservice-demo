@@ -1,34 +1,13 @@
 version: '3'
 
 services:
-
-  laravel:
-    # build: ./php
-    container_name: laravel
-    hostname: php
-    # healthcheck:
-      # test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://nginx/status/fpm"]
-    image: php:7.4
-    restart: unless-stopped
-    ports:
-      - "9001:9000"
-    volumes:
-      - /projects/laravel:/www/laravel
-      # - ./php/config:/usr/local/etc:ro
-      # - ./php/socket:/var/run/php
-      # - ./php/supervisord.conf:/etc/supervisord.conf:ro
-
-  # nginx:
-  #   # build: ./nginx
-  #   container_name: nginx
-  #   hostname: nginx
-  #   # healthcheck:
-  #     # test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/status/nginx"]
-  #   image: nginx
-  #   ports:
-  #     - "80:80"
-  #   restart: unless-stopped
-  #   volumes:
-  #     - /projects/laravel:/www/laravel
-      # - ./nginx/config:/etc/nginx:ro
-      # - ./php/socket:/var/run/php
+    ws:
+        container_name: ws
+        image: hoangthanhlam1984/ws-demo:development
+        restart: unless-stopped
+        ports:
+            - "9001:9000"
+        volumes:
+            - /projects/ws:/www/ws
+        networks:
+            - demo_network
