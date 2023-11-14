@@ -7,7 +7,7 @@ services:
         ports:
             - 9001:9000
         volumes:
-            - /projects/ws:/var/www/ws
+            - /projects/ws:/var/www/html
         user: 1000:1000
-        working_dir: /var/www/ws
+        working_dir: /var/www/html
 
