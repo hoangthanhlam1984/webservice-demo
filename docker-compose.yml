@@ -1,5 +1,9 @@
 version: '3'
 
+networks:
+    demo_network:
+        driver: swarm
+
 services:
     ws:
         container_name: ws
