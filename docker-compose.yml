@@ -15,7 +15,7 @@ services:
         image: nginx:latest
         restart: unless-stopped
         ports:
-            - 8000:80
+            - 8080:80
         volumes:
             - /projects/ws/logs:/var/www/html/storage/logs
             - /docker/nginx/vhosts/:/etc/nginx/conf.d/
