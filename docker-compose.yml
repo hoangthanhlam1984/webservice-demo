@@ -10,11 +10,3 @@ services:
             - /projects/ws:/var/www/ws
         user: 1000:1000
         working_dir: /var/www/ws
-
-    nginx:
-        image: nginx:latest
-        restart: unless-stopped
-        ports:
-            - 80:80
-        volumes:
-            - /docker/nginx/vhosts/:/etc/nginx/conf.d/
