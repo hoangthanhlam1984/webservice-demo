@@ -6,8 +6,6 @@ services:
         restart: unless-stopped
         ports:
             - 9001:9000
-        volumes:
-            - /projects/webservice-demo:/var/www/webservice-demo
         user: 1000:1000
         working_dir: /var/www/webservice-demo
 
