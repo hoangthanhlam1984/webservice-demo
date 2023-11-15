@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    ws-demo:
+        image: hoangthanhlam1984/ws-demo:development
+        restart: unless-stopped
+        ports:
+            - 9001:9000
+        volumes:
+            - /projects/webservice-demo:/var/www/webservice-demo
+        user: 1000:1000
+        working_dir: /var/www/webservice-demo
+
+    nginx:
+        image: nginx:latest
+        restart: unless-stopped
+        ports:
+            - 80:80
