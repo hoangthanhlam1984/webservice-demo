@@ -1,4 +1,4 @@
-FROM trafex/php-nginx
+FROM wyveo/nginx-php-fpm:php74
 
 EXPOSE 9000
 
