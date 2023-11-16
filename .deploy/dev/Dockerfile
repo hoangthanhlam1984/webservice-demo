@@ -14,7 +14,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 EXPOSE 9000
 
 
-USER 1000
+USER project
 
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
