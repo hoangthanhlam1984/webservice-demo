@@ -9,7 +9,7 @@ RUN mkdir -p /var/www/webservice-demo
 
 USER 1000
 
-RUN chmod 1000:1000 /var/www/webservice-demo -R
+RUN chown 1000:1000 /var/www/webservice-demo -R
 
 WORKDIR /var/www/webservice-demo
 
