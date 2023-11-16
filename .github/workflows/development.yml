@@ -19,8 +19,8 @@ jobs:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     strategy:
-      matrix: [./.deploy/php/Dockerfile, ./.deploy/nginx/Dockerfile]
-        dockerfiles: [ubuntu-22.04, ubuntu-20.04]
+      matrix:
+        dockerfiles: [./.deploy/php/Dockerfile, ./.deploy/nginx/Dockerfile]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
-          file: ${{ matrix.dockerfiles }}
+          file: ${{ strategy.matrix.dockerfiles }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
