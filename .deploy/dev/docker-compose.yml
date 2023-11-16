@@ -5,7 +5,7 @@ services:
         image: hoangthanhlam1984/ws-demo:development
         restart: unless-stopped
         ports:
-            - 9001:9000
+            - 9001:9100
             - 80:80
         user: 1000:1000
         working_dir: /var/www/webservice-demo

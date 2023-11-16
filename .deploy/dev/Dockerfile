@@ -1,7 +1,7 @@
 # FROM wyveo/nginx-php-fpm:php74
 FROM webdevops/php-nginx:7.4-alpine
 
-EXPOSE 9000
+EXPOSE 9100
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
