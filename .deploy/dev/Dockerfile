@@ -7,9 +7,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN mkdir -p /etc/nginx/conf.d/
 RUN mkdir -p /var/www/webservice-demo
 
-USER 1000
 
-RUN chown 1000:1000 /var/www/webservice-demo -R
+# RUN chown 1000:1000 /var/www/webservice-demo -R
 
 WORKDIR /var/www/webservice-demo
 
@@ -28,3 +27,5 @@ RUN php artisan optimize
 RUN chmod 777 ./storage -R
 
 VOLUME [ "/projects/webservice-demo" ]
+
+USER 1000
