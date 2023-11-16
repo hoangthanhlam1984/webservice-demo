@@ -13,6 +13,7 @@ WORKDIR /var/www/webservice-demo
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
 COPY ./.deploy/dev/vhosts/*.* /etc/nginx/conf.d/
+COPY ./.deploy/dev/vhosts/*.* /opt/docker/etc/nginx/conf.d/;
 
 COPY .env.example .env
 
