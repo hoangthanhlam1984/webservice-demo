@@ -1,4 +1,5 @@
-FROM wyveo/nginx-php-fpm:php74
+# FROM wyveo/nginx-php-fpm:php74
+FROM webdevops/php-nginx:7.4-alpine
 
 EXPOSE 9000
 
