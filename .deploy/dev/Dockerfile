@@ -10,6 +10,8 @@ RUN mkdir -p /var/www/webservice-demo
 
 WORKDIR /var/www/webservice-demo
 
+USER www-data
+
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
 COPY --chown=1000:1000 ./.deploy/dev/vhosts/*.* /etc/nginx/conf.d/
@@ -26,7 +28,7 @@ RUN chmod 777 ./storage -R
 
 # VOLUME [ "/projects/webservice-demo" ]
 
-RUN usermod -u 1000 www-data &&\
-    groupmod -g 1000 www-data
+# RUN usermod -u 1000 www-data &&\
+#     groupmod -g 1000 www-data
 
 USER www-data
