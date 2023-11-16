@@ -2,19 +2,19 @@ FROM trafex/php-nginx
 
 USER root
 
-RUN mkdir -p /var/www/webservice-demo
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN mkdir -p /etc/nginx/conf.d/
 
+USER 1000
+
+RUN mkdir -p /var/www/webservice-demo
+
+RUN chmod 1000:1000 /var/www/webservice-demo -R
+
 WORKDIR /var/www/webservice-demo
 
-# Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
 EXPOSE 9000
-
-
-USER project
 
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
