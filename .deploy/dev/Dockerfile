@@ -13,8 +13,8 @@ EXPOSE 9000
 
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
-RUN COPY ./.deploy/dev/vhosts/*.* /etc/nginx/conf.d/
-RUN COPY ./.deploy/dev/vhosts/*.* /etc/conf.d/
+COPY ./.deploy/dev/vhosts/*.* /etc/nginx/conf.d/
+COPY ./.deploy/dev/vhosts/*.* /etc/conf.d/
 
 COPY .env.example .env
 
