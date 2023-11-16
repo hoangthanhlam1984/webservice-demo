@@ -1,5 +1,7 @@
 FROM trafex/php-nginx
 
+USER root
+
 RUN mkdir -p /var/www/webservice-demo
 
 RUN mkdir -p /etc/nginx/conf.d/
