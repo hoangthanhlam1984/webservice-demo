@@ -2,6 +2,9 @@ FROM trafex/php-nginx
 
 RUN mkdir -p /var/www/webservice-demo
 
+RUN mkdir -p /etc/nginx/conf.d/
+RUN mkdir -p /etc/conf.d/
+
 WORKDIR /var/www/webservice-demo
 
 EXPOSE 9000
@@ -9,6 +12,7 @@ EXPOSE 9000
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
 RUN COPY ./.deploy/dev/vhosts/*.* /etc/nginx/conf.d/
+RUN COPY ./.deploy/dev/vhosts/*.* /etc/conf.d/
 
 COPY .env.example .env
 
