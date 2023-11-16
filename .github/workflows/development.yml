@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockerfiles: [./.deploy/php/Dockerfile, ./.deploy/nginx/Dockerfile]
+        dockerfiles: [.deploy/php/Dockerfile, .deploy/nginx/Dockerfile]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
