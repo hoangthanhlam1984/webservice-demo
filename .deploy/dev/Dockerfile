@@ -5,10 +5,9 @@ USER root
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN mkdir -p /etc/nginx/conf.d/
+RUN mkdir -p /var/www/webservice-demo
 
 USER 1000
-
-RUN mkdir -p /var/www/webservice-demo
 
 RUN chmod 1000:1000 /var/www/webservice-demo -R
 
