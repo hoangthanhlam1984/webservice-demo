@@ -8,16 +8,17 @@ RUN mkdir -p /etc/nginx/conf.d/
 
 WORKDIR /var/www/webservice-demo
 
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 EXPOSE 9000
+
 
 USER 1000
 
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
 COPY ./.deploy/dev/vhosts/*.* /etc/nginx/conf.d/
-
-# Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY .env.example .env
 
