@@ -5,21 +5,21 @@ USER root
 RUN mkdir -p /var/www/webservice-demo
 
 RUN mkdir -p /etc/nginx/conf.d/
-RUN mkdir -p /etc/conf.d/
 
 WORKDIR /var/www/webservice-demo
 
 EXPOSE 9000
 
+USER 1000
+
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
 COPY ./.deploy/dev/vhosts/*.* /etc/nginx/conf.d/
-COPY ./.deploy/dev/vhosts/*.* /etc/conf.d/
-
-COPY .env.example .env
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY .env.example .env
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
