@@ -10,7 +10,10 @@ services:
         working_dir: /var/www/webservice-demo
 
     nginx:
-        image: nginx:latest
+        build:
+            context: ./.deploy/nginx
+            dockerfile: Dockerfile
+        # image: nginx:latest
         restart: unless-stopped
         ports:
             - 80:80

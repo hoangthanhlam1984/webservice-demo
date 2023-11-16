@@ -8,8 +8,6 @@ EXPOSE 9000
 
 COPY --chown=1000:1000 . /var/www/webservice-demo
 
-COPY --chown=1000:1000 ./.deploy/vhosts/*.* /etc/nginx/conf.d/
-
 COPY .env.example .env
 
 # Install composer
