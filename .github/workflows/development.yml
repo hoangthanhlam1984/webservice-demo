@@ -15,13 +15,11 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
 
-      - name: Write to .env
-        uses: thaind0/envfile@v1
+      - name: Write to ENVFILE
+        uses: alekangelov/secret-envfile@v1
         with:
-          secrets: ${{ toJSON(secrets) }}
-          prefix:
-          override: true
-          exclude: SSH_*,DOCKER_*
+          content: ${{ secrets.ENVFILE_DEV }}
+          filename: .env
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
