@@ -19,7 +19,6 @@ jobs:
         uses: oNaiPs/secrets-to-env-action@v1
         with:
           secrets: ${{ toJSON(secrets.SuperSecret) }}
-          override: false
 
       - run: env
 
