@@ -17,10 +17,9 @@ COPY ./.deploy/dev/vhosts/*.* /opt/docker/etc/nginx/conf.d/
 
 # COPY --chown=1000:1000 .env.example .env
 
-# RUN composer install --no-interaction --optimize-autoloader --no-dev
-RUN composer install
+RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-RUN php artisan key:generate
+# RUN php artisan key:generate
 RUN php artisan optimize
 RUN chmod 777 ./storage -R
 
