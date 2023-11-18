@@ -15,14 +15,12 @@ COPY --chown=1000:1000 . /var/www/webservice-demo
 # COPY ./.deploy/dev/vhosts/*.* /etc/nginx/conf.d/
 COPY ./.deploy/dev/vhosts/*.* /opt/docker/etc/nginx/conf.d/
 
-COPY --chown=1000:1000 .env.example .env
+# COPY --chown=1000:1000 .env.example .env
 
-RUN composer install --no-interaction --optimize-autoloader --no-dev
+# RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-RUN php artisan key:generate
-RUN php artisan optimize
+# RUN php artisan key:generate
+# RUN php artisan optimize
 RUN chmod 777 ./storage -R
-
-# VOLUME [ "/projects/webservice-demo" ]
 
 USER www-data
