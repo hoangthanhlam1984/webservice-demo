@@ -20,7 +20,7 @@ COPY ./.deploy/dev/vhosts/*.* /opt/docker/etc/nginx/conf.d/
 # RUN composer install --no-interaction --optimize-autoloader --no-dev
 
 # RUN php artisan key:generate
-RUN php artisan optimize
+# RUN php artisan optimize
 RUN chmod 777 ./storage -R
 
 # VOLUME [ "/projects/webservice-demo" ]
