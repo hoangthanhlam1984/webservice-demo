@@ -19,13 +19,6 @@ jobs:
         with:
           secrets: ${{ toJSON(secrets) }}
 
-      - name: Hello world action
-        uses: oNaiPs/secrets-to-env-action@v1
-        with:
-          secrets: ${{ secrets }}
-
-      - run: env
-
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
