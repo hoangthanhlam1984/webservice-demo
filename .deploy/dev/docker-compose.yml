@@ -9,3 +9,5 @@ services:
             - 80:80
         user: 1000:1000
         working_dir: /var/www/webservice-demo
+        env_file:
+            - stack.env
