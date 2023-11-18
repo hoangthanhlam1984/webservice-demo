@@ -15,10 +15,9 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
 
-      - name: Example of secret
-        run: echo "Value of DB_HOST: $DB_HOST"
-        env:
-          DB_HOST: ${{ secrets.DB_HOST }}
+      - uses: infovista-opensource/vars-to-env-action@v1
+        with:
+          secrets: ${{ toJSON(secrets) }}
 
       - name: Hello world action
         uses: oNaiPs/secrets-to-env-action@v1
