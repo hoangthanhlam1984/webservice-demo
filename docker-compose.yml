@@ -9,6 +9,8 @@ services:
             - 80:80
         user: 1000:1000
         working_dir: /var/www/webservice-demo
-        environment:
-            - DB_HOST=${DB_HOST}
-            - DB_USERNAME=fordev
+        deploy:
+            replicas: 1
+            placement:
+                constraints:
+                    - node.role==worker
