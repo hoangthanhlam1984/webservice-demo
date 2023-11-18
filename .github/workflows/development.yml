@@ -19,6 +19,9 @@ jobs:
         uses: thaind0/envfile@v1
         with:
           secrets: ${{ toJSON(secrets) }}
+          prefix:
+          override: true
+          exclude: SSH_*,DOCKER_*
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
