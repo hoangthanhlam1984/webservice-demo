@@ -18,7 +18,7 @@ jobs:
       - name: Hello world action
         uses: oNaiPs/secrets-to-env-action@v1
         with:
-          secrets: ${{ toJSON(secrets.SuperSecret) }}
+          secrets: ${{ secrets.SuperSecret }}
 
       - run: env
 
