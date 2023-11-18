@@ -15,7 +15,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
 
-      - uses: infovista-opensource/vars-to-env-action@v1
+      - uses: Firenza/secrets-to-env@v1.2.0
         with:
           secrets: ${{ toJSON(secrets) }}
 
