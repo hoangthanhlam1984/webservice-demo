@@ -1,9 +1,9 @@
-name: Deploy to development
+name: Deploy to staging
 
 on:
   push:
     branches:
-      - development
+      - staging
 
 jobs:
   push_to_registry:
@@ -18,7 +18,7 @@ jobs:
       - name: Write to ENVFILE
         uses: alekangelov/secret-envfile@v1
         with:
-          content: ${{ secrets.ENVFILE_DEV }}
+          content: ${{ secrets.ENVFILE_STG }}
           filename: .env
 
       - name: Log in to Docker Hub
@@ -37,7 +37,7 @@ jobs:
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
-          file: ./.deploy/dev/Dockerfile
+          file: ./.deploy/staging/Dockerfile
           push: true
-          tags: development
+          tags: staging
           labels: ${{ steps.meta.outputs.labels }}

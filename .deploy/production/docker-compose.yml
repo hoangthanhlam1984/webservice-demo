@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
     ws-demo:
-        image: hoangthanhlam1984/ws-demo:development
+        image: hoangthanhlam1984/ws-demo:main
         restart: unless-stopped
         ports:
             - 9001:9000
