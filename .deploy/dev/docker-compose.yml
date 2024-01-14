@@ -12,7 +12,7 @@ services:
         restart: unless-stopped
         user: 1000:1000
         working_dir: /var/www/webservice-demo
-        command: php artisan schedule:rundeploy:
+        command: php artisan schedule:run
         deploy:
             restart_policy:
                 condition: any
