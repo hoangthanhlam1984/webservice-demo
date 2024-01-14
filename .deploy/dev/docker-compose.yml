@@ -15,7 +15,6 @@ services:
         command: php artisan schedule:rundeploy:
         deploy:
             restart_policy:
-                condition: on-failure
                 condition: any
                 delay: 1m
 
