@@ -13,9 +13,11 @@ services:
         user: 1000:1000
         working_dir: /var/www/webservice-demo
         command: php artisan schedule:rundeploy:
-        restart_policy:
-            condition: any
-            delay: 1m
+        deploy:
+            restart_policy:
+                condition: on-failure
+                condition: any
+                delay: 1m
 
     ws-demo-queue:
         image: hoangthanhlam1984/ws-demo:development
